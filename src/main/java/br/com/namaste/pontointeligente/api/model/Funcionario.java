@@ -52,8 +52,8 @@ public class Funcionario implements Serializable {
 	private BigDecimal valorHora;
 
 	@Transient
-	@Column(name = "qtd_horas_trabalhadas_dia", nullable = true)
-	private Float qtdHorasTrabalhadaDia;
+	@Column(name = "qtd_horas_trabalho_dia", nullable = true)
+	private Float qtdHorasTrabalhoDia;
 
 	@Transient
 	@Column(name = "qtd_horas_almoco", nullable = true)
@@ -123,21 +123,41 @@ public class Funcionario implements Serializable {
 		return  Optional.ofNullable(valorHora);
 	}
 
+
+	public Optional<BigDecimal> getValorHoraOpt(){
+		return Optional.ofNullable(valorHora);
+	}
+	
+	
 	public void setValorHora(BigDecimal valorHora) {
 		this.valorHora = valorHora;
 	}
+	
 
-	public Optional<Float> getQtdHorasTrabalhadaDia() {
-		return Optional.ofNullable(qtdHorasTrabalhadaDia);
+	public Float getQtdHorasTrabalhoDia() {
+		return qtdHorasTrabalhoDia;
+	}
+	
+	@Transient
+	public Optional<Float> getQtdHorasTrabalhoDiaOpt(){
+		return Optional.ofNullable(qtdHorasTrabalhoDia);
 	}
 
-	public void setQtdHorasTrabalhadaDia(Float qtdHorasTrabalhadaDia) {
-		this.qtdHorasTrabalhadaDia = qtdHorasTrabalhadaDia;
+	public void setQtdHorasTrabalhoDia(Float qtdHorasTrabalhoDia) {
+		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
+	}
+	
+	public Float getHorasAlmoco() {
+		return qtdHorasAlmoco;
+		
 	}
 
-	public Optional<Float> getQtdHorasAlmoco() {
+	@Transient
+	public Optional<Float> getQtdHorasAlmocoOpt() {
 		return Optional.ofNullable(qtdHorasAlmoco);
 	}
+	
+	
 
 	public void setQtdHorasAlmoco(Float qtdHorasAlmoco) {
 		this.qtdHorasAlmoco = qtdHorasAlmoco;
@@ -199,7 +219,7 @@ public class Funcionario implements Serializable {
 	@Override
 	public String toString() {
 		return "Funcionario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", cpf=" + cpf
-				+ ", valorHora=" + valorHora + ", qtdHorasTrabalhadaDia=" + qtdHorasTrabalhadaDia + ", qtdHorasAlmoco="
+				+ ", valorHora=" + valorHora + ", qtdHorasTrabalhoDia=" + qtdHorasTrabalhoDia + ", qtdHorasAlmoco="
 				+ qtdHorasAlmoco + ", perfil=" + perfil + ", dataCriacao=" + dataCriacao + ", dataAtualizacao="
 				+ dataAtualizacao + ", empresa=" + empresa + "]";
 	}
