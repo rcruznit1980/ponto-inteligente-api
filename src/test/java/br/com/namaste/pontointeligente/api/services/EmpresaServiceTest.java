@@ -34,8 +34,8 @@ public class EmpresaServiceTest {
 	
 	@Autowired
 	private EmpresaService empresaService;
-	
-	private static final String CNPJ = "51463645000100";
+									   
+	private static final String CNPJ = "50164104000100";
 	
 	@Before
 	public void setUp() throws Exception{

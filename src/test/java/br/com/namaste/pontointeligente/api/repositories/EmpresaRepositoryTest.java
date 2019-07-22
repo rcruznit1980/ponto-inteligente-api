@@ -20,8 +20,8 @@ public class EmpresaRepositoryTest {
 	
 	@Autowired
 	private EmpresaRepository empresaRepository;
-	
-	private static final String CNPJ = "5146364000100";
+									   
+	private static final String CNPJ = "50164104000100";
 	
 	@Before
 	public void setUp() throws Exception{
