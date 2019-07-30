@@ -46,7 +46,7 @@ public class EmpresaControllerTest {
 	@Test
 	@WithMockUser
 	public void testBuscarEmpresaCnpjInvalido() throws Exception {
-		BDDMockito.given(this.empresaService.buscarPorCNPJ(Mockito.anyString())).willReturn(Optional.empty());
+		BDDMockito.given(this.empresaService.buscarPorCnpj(Mockito.anyString())).willReturn(Optional.empty());
 
 		mvc.perform(MockMvcRequestBuilders.get(BUSCAR_EMPRESA_CNPJ_URL + CNPJ).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
@@ -56,7 +56,7 @@ public class EmpresaControllerTest {
 	@Test
 	@WithMockUser
 	public void testBuscarEmpresaCnpjValido() throws Exception {
-		BDDMockito.given(this.empresaService.buscarPorCNPJ(Mockito.anyString()))
+		BDDMockito.given(this.empresaService.buscarPorCnpj(Mockito.anyString()))
 				.willReturn(Optional.of(this.obterDadosEmpresa()));
 
 		mvc.perform(MockMvcRequestBuilders.get(BUSCAR_EMPRESA_CNPJ_URL + CNPJ)

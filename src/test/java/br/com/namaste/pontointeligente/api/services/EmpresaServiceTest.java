@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,42 +18,39 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.namaste.pontointeligente.api.model.Empresa;
 import br.com.namaste.pontointeligente.api.repositories.EmpresaRepository;
-import br.com.namaste.pontointeligente.api.service.impl.EmpresaServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
 public class EmpresaServiceTest {
-	
-	
 
 	@MockBean
 	private EmpresaRepository empresaRepository;
-	
+
 	@Autowired
 	private EmpresaService empresaService;
-									   
-	private static final String CNPJ = "50164104000100";
-	
+
+	private static final String CNPJ = "51463645000100";
+
 	@Before
-	public void setUp() throws Exception{
+	public void setUp() throws Exception {
 		BDDMockito.given(this.empresaRepository.findByCnpj(Mockito.anyString())).willReturn(new Empresa());
 		BDDMockito.given(this.empresaRepository.save(Mockito.any(Empresa.class))).willReturn(new Empresa());
 	}
-	
-	@Test
-	public void testBuscarEmpresaPorCnpj() { 
-		Optional<Empresa> empresa = this.empresaService.buscarPorCNPJ(CNPJ);
-		
-		assertTrue(empresa.isPresent());
-	}
 
 	@Test
-	public void  testPersistirEmpresa() {
-		Empresa empresa = this.empresaService.persistir(new Empresa());
-		
-		assertNotNull(empresa);
+	public void testBuscarEmpresaPorCnpj() {
+		Optional<Empresa> empresa = this.empresaService.buscarPorCnpj(CNPJ);
+
+		assertTrue(empresa.isPresent());
 	}
+	
+	@Test
+	public void testPersistirEmpresa() {
+		Empresa empresa = this.empresaService.persistir(new Empresa());
+
+		assertNotNull(empresa);
+	}	
 	
 	
 

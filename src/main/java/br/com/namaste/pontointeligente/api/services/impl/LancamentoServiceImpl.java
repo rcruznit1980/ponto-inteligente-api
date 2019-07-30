@@ -1,4 +1,4 @@
-package br.com.namaste.pontointeligente.api.service.impl;
+package br.com.namaste.pontointeligente.api.services.impl;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package br.com.namaste.pontointeligente.api.service.impl;
+package br.com.namaste.pontointeligente.api.services.impl;
 
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	}
 
 	@Override
-	public Optional<Funcionario> buscaPorEmail(String email) {
+	public Optional<Funcionario> buscarPorEmail(String email) {
 		log.info("Buscando funcionário pelo Email {}", email);
 		return Optional.ofNullable(this.funcionarioRepository.findByEmail(email));
 	}

@@ -35,14 +35,8 @@ public class FuncionarioRepositoryTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
-		
-		try {
-			Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
-			this.funcionarioRepository.save(obterDadosFuncionario(empresa));
-		} catch (Exception e) {
-			System.out.println("Erro: " + e.getMessage());
-		}
+		Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
+		this.funcionarioRepository.save(obterDadosFuncionario(empresa));
 	}
 
 	@After
@@ -102,5 +96,6 @@ public class FuncionarioRepositoryTest {
 		empresa.setCnpj("51463645000100");
 		return empresa;
 	}
+
 
 }

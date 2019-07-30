@@ -1,4 +1,4 @@
-package br.com.namaste.pontointeligente.api.service.impl;
+package br.com.namaste.pontointeligente.api.services.impl;
 
 import java.util.Optional;
 
@@ -21,7 +21,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 	
 	
 	@Override
-	public Optional<Empresa> buscarPorCNPJ(String cnpj) {
+	public Optional<Empresa> buscarPorCnpj(String cnpj) {
 		log.info("Buscando uma empresa para o CNPJ {}", cnpj);
 		return Optional.ofNullable(empresaRepository.findByCnpj(cnpj));
 	}

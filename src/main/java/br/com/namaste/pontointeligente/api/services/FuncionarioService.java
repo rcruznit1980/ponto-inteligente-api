@@ -31,7 +31,7 @@ public interface FuncionarioService {
 	 *  
 	 *  */
 	
-	Optional<Funcionario> buscaPorEmail(String email);
+	Optional<Funcionario> buscarPorEmail(String email);
 
 	
 	/** Busca e rertorna um funcionario por id

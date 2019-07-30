@@ -8,7 +8,7 @@ public interface EmpresaService {
 
 	
 	//Retorna uma empresa a partir de um CNPJ 
-	Optional<Empresa> buscarPorCNPJ(String cnpj);
+	Optional<Empresa> buscarPorCnpj(String cnpj);
 	
 	//Cadastra uma nova empresa
 	Empresa persistir (Empresa empresa);

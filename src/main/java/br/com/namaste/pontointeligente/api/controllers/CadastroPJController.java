@@ -21,9 +21,9 @@ import br.com.namaste.pontointeligente.api.enums.PerfilEnum;
 import br.com.namaste.pontointeligente.api.model.Empresa;
 import br.com.namaste.pontointeligente.api.model.Funcionario;
 import br.com.namaste.pontointeligente.api.response.Response;
-import br.com.namaste.pontointeligente.api.service.impl.EmpresaServiceImpl;
 import br.com.namaste.pontointeligente.api.services.EmpresaService;
 import br.com.namaste.pontointeligente.api.services.FuncionarioService;
+import br.com.namaste.pontointeligente.api.services.impl.EmpresaServiceImpl;
 import br.com.namaste.pontointeligente.api.utils.PasswordUtils;
 
 @RestController
@@ -87,13 +87,13 @@ public class CadastroPJController {
 	 */
 	
 	private void validarDadosExistentes(CadastroPJDto cadastroPJDto, BindingResult result) {
-		this.empresaService.buscarPorCNPJ(cadastroPJDto.getCnpj())
+		this.empresaService.buscarPorCnpj(cadastroPJDto.getCnpj())
 				.ifPresent(emp -> result.addError(new ObjectError("empresa", "Empresa já existente")));
 		
 		this.funcionarioService.buscarPorCpf(cadastroPJDto.getCpf())
 		.ifPresent(func -> result.addError(new ObjectError("funcionario", "Funcionario já existente")));
 		
-		this.funcionarioService.buscaPorEmail(cadastroPJDto.getEmail())
+		this.funcionarioService.buscarPorEmail(cadastroPJDto.getEmail())
 		.ifPresent(func -> result.addError(new ObjectError("funcionario", "E-mail já existente")));
 	}
 	
