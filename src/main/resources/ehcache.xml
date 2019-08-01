@@ -1,0 +1,9 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instante"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<cache name="lancamentoPorId"
+			maxEntriesLocalHelp="200"
+			timeToLiveSeconds="3600">
+	</cache>
+	
+</ehcache>
+	
